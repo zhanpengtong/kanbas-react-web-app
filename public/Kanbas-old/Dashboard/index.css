@@ -1,0 +1,57 @@
+.course-card {
+    max-width: 270px;
+    min-width: 250px;
+    margin: 40px 20px 20px 0px;
+}
+
+.blue-placeholder {
+    background-color:aquamarine;
+    height: 150px; /* Adjust this value based on your design requirements */
+}
+.wd-flex-col-container {
+    display: flexbox;
+    flex-direction: column;
+    margin-left: 40px;
+}
+
+.wd-flex-row {
+    display: flex;
+    flex-direction: row;
+    margin-left: 40px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.justify-content-start {
+    justify-content: flex-start;
+}
+
+.dashboard {
+    font-size: 24px;
+    color: black;
+    text-decoration: none;
+}
+
+.courses {
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.wd-space-between {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.wd-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}

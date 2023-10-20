@@ -1,0 +1,25 @@
+.wd-account-navigation {
+    background-color: white;
+    list-style: none;
+    padding: 0px;
+    width: 200px;
+    margin: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+} 
+.wd-account-navigation li {
+    padding-left: 15px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+.wd-account-navigation li.wd-active{
+    border-left: 10px solid black;
+}
+.wd-account-navigation li.wd-active a{
+   color: black;
+}
+
+.wd-account-navigation a {
+    color: red;
+    text-decoration: none;
+}
