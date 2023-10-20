@@ -18,7 +18,7 @@ function AssignmentEditor() {
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <a style={{ color: 'green' }}><AiFillCheckCircle className="wd-icon" />Published</a>&nbsp;&nbsp;
+        <a style={{ color: 'green' }}> <AiFillCheckCircle className="wd-icon" /> Published </a>&nbsp;&nbsp;
         <button><SlOptionsVertical className="wd-icon" /></button>
       </div>
       <hr />
@@ -27,11 +27,6 @@ function AssignmentEditor() {
              className="form-control mb-2" />
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
         <Link to={`/Kanbas/Courses/${courseId}/Assignments`} className="btn btn-light">Cancel</Link>
-        {/* <Link onClick={handleSave}
-              to={`/Kanbas/Courses/${courseId}/Assignments`}
-              className="btn btn-success me-2">
-          Save
-        </Link> */}
         <button onClick={handleSave} className="btn btn-danger me-2">Save</button>
       </div>
     </div>
