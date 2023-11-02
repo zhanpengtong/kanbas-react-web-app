@@ -33,7 +33,7 @@ function AssignmentEditor() {
         <a>Points</a>&nbsp;&nbsp; <input value={"100"} className="form-control" style={{ width: '500px' }} />
       </div> <br />
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <a>Assignment</a>&nbsp;&nbsp;
+        <a>Assign</a>&nbsp;&nbsp;
         <li className="list-group-item">
           Due
           <input value={"2021-10-01"} className="form-control" style={{ width: '500px' }} />
