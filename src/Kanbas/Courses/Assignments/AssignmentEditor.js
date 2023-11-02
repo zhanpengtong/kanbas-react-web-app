@@ -24,7 +24,28 @@ function AssignmentEditor() {
       <hr />
       <h2>Assignment Name</h2>
       <input value={assignment.title}
-             className="form-control mb-2" />
+             className="form-control" />
+      <br />
+      <textarea value={"New Assignment Description"} 
+                className="form-control" />
+      <br />
+      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <a>Points</a>&nbsp;&nbsp; <input value={"100"} className="form-control" style={{ width: '500px' }} />
+      </div> <br />
+      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <a>Assignment</a>&nbsp;&nbsp;
+        <li className="list-group-item">
+          Due
+          <input value={"2021-10-01"} className="form-control" style={{ width: '500px' }} />
+          Available
+          <input value={"2021-09-01"} className="form-control" style={{ width: '500px' }} />
+          Untill
+          <input value={"2021-10-01"} className="form-control" style={{ width: '500px' }} />
+        </li>
+
+      </div>
+      <br /><br />
+
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
         <Link to={`/Kanbas/Courses/${courseId}/Assignments`} className="btn btn-light">Cancel</Link>
         <button onClick={handleSave} className="btn btn-danger me-2">Save</button>

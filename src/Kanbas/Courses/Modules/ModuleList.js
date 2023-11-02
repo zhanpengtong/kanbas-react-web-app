@@ -1,64 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import db from "../../Database";
-import {SlOptionsVertical} from "react-icons/sl";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addModule,
+  deleteModule,
+  updateModule,
+  setModule,
+} from "./modulesReducer";
 
 function ModuleList() {
   const { courseId } = useParams();
-  const modules = db.modules;
+  const modules = useSelector((state) => state.modulesReducer.modules);
+  const module = useSelector((state) => state.modulesReducer.module);
+  const dispatch = useDispatch();
   return (
-    <div>
-      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <button>Collapse All</button>
-        <button>View Progress</button>
-        <button>Publish All</button>
-        <button style={{ backgroundColor: 'red', color: 'white' }}>+ Modules</button>
-        <button><SlOptionsVertical className="wd-icon" /></button>
-      </div>
-      <hr />
-      <div className="list-group">
-            <div className="list-group-item">
-                <strong>Week 0 - INTRO</strong>
-                <div className="list-group">
-                    <div className="list-group-item">LEARNING OBJECTIVES</div>
-                    <div className="list-group-item">Introduction to the course</div>
-                    <div className="list-group-item">Learn what is Web Development</div>
-                    <div className="list-group-item">Creating a development environment</div>
-                    <div className="list-group-item">Creating a Web Application</div>
-                    <div className="list-group-item">Getting started with the 1st assignment</div>
+    <ul className="list-group">
+        <li className="list-group-item">
+            <div className="float-end">
+                <button class="btn btn-primary" onClick={() => dispatch(updateModule(module))}> Update </button>
+                <button class="btn btn-success" onClick={() => dispatch(addModule({ ...module, course: courseId }))}> Add </button>
+            </div>
+            <div className="float-start">
+                <div>
+                    <input value={module.name} 
+                    onChange={(e) => setModule({ ...module, name: e.target.value })}/>
                 </div>
-                <div className="list-group">
-                    <div className="list-group-item">READING</div>
-                    <div className="list-group-item">Full Stack Developer - Chapter 1 - Introduction</div>
-                    <div className="list-group-item">Full Stack Developer - Chapter 2 - Creating User Interfaces With HTML</div>
-                </div>
-                <div className="list-group">
-                    <div className="list-group-item">SLIDES</div>
-                    <a href="#" className="list-group-item">Introduction to Web Development Links to an external site.</a>
-                    <a href="#" className="list-group-item">Creating an HTTP server with Node.js Links to an external site.</a>
-                    <a href="#" className="list-group-item">Creating a React Application Links to an external site.</a>
+                <div>
+                    <textarea value={module.description}
+                    onChange={(e) => setModule({...module, description: e.target.value })}/>
                 </div>
             </div>
-            
-            <div className="list-group-item">
-                <strong>Week 1 - HTML</strong>
-                <div className="list-group">
-                    <div className="list-group-item">LEARNING OBJECTIVES</div>
-                    <div className="list-group-item">Learn how to create user interfaces with HTML</div>
-                    <div className="list-group-item">Keep working on assignment 1</div>
-                    <div className="list-group-item">Deploy the assignment to Netlify</div>
-                </div>
-                <div className="list-group">
-                    <div className="list-group-item">READING</div>
-                    <div className="list-group-item">Full Stack Developer - Chapter 1 - Introduction</div>
-                    <div className="list-group-item">Full Stack Developer - Chapter 2 - Creating User Interfaces With HTML</div>
-                </div>
-            </div>
-        </div>
+        </li>
 
-    </div>
+      {modules
+        .filter((module) => module.course === courseId)
+        .map((module, index) => (
+          <li key={index} className="list-group-item">
+            <div className="float-end">
+                <button class="btn btn-danger" onClick={() => dispatch(deleteModule(module._id))}> Delete </button>
+                <button class="btn btn-success" onClick={() => dispatch(setModule(module))}> Edit </button>
+            </div>
+            <h3>{module.name}</h3>
+            <p>{module.description}</p>
+            <p>{module._id}</p>
+          </li>))}
+    </ul>
   );
 }
 export default ModuleList;
-
-
