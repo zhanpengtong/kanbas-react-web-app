@@ -1,7 +1,5 @@
 import React from "react";
-import { useParams, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import JsonPre from "../../Labs/a3/JsonPre";
-import db from "../Database";
+import { useParams, Routes, Route, Navigate } from "react-router-dom";
 import CourseNavigation from "./CourseNavigation";
 import Modules from "./Modules";
 import Home from "./Home";
@@ -9,10 +7,23 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Grades from "./Grades";
 import { FaBars } from "react-icons/fa";
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
 
-function Courses( {courses}) {
+function Courses() {
   const { courseId } = useParams();
-  const course = courses.find((course) => course._id === courseId);
+  const [course, setCourse] = useState({});
+  const findCourseById = async (courseId) => {
+    const response = await axios.get(
+      `http://localhost:4000/api/courses/${courseId}`
+    );
+    setCourse(response.data);
+  };
+  useEffect(() => {
+    findCourseById(courseId);
+  }, [courseId]);
+
   return (
     <div>
       &nbsp;&nbsp;&nbsp;&nbsp;<FaBars color="red" />&nbsp;&nbsp;&nbsp;&nbsp;

@@ -1,6 +1,5 @@
-import db from "../Database";
 import { Link } from "react-router-dom";
-import { React, useState } from "react";
+import { React } from "react";
 
 function Dashboard(
   { courses, course, setCourse, addNewCourse,
@@ -32,8 +31,10 @@ function Dashboard(
                   className="list-group-item">
               {course.name}
               <div className="float-end">
-                <button class="btn btn-primary" onClick={(event) => { event.preventDefault(); setCourse(course);}}> Edit </button>
-                <button class="btn btn-danger" onClick={(event) => { event.preventDefault(); deleteCourse(course._id); }}> Delete </button>
+                <button class="btn btn-primary" onClick={(event) => 
+                  { event.preventDefault(); setCourse(course);}}> Edit </button>
+                <button class="btn btn-danger" onClick={(event) => 
+                  { event.preventDefault(); deleteCourse(course._id); }}> Delete </button>
               </div>
             </Link>
           ))}
