@@ -44,7 +44,7 @@ function ModuleList() {
     <ul className="list-group">
         <li className="list-group-item">
             <div className="float-end">
-                <button class="btn btn-primary" onClick= {handleUpdateModule}> Update </button>
+                <button class="btn btn-primary" onClick= { () => dispatch(updateModule(module))}> Update </button>
 
                 <button class="btn btn-success" onClick={handleAddModule}> Add </button>
             </div>

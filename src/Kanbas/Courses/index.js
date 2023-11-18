@@ -12,11 +12,13 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 function Courses() {
+  const API_BASE = process.env.REACT_APP_API_BASE;
+  const COURSES_URL = `${API_BASE}/courses`;
   const { courseId } = useParams();
   const [course, setCourse] = useState({});
   const findCourseById = async (courseId) => {
     const response = await axios.get(
-      `http://localhost:4000/api/courses/${courseId}`
+      `${COURSES_URL}/${courseId}`
     );
     setCourse(response.data);
   };
