@@ -14,6 +14,7 @@ import { useState } from "react";
 function Courses() {
   const API_BASE = process.env.REACT_APP_API_BASE;
   const COURSES_URL = `${API_BASE}/courses`;
+  console.log("COURSES_URL", COURSES_URL);
   const { courseId } = useParams();
   const [course, setCourse] = useState({});
   const findCourseById = async (courseId) => {
