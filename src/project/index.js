@@ -13,6 +13,16 @@ import Signup from "./users/signup.js";
 
 function Project() {
   const [key, setKey] = useState("home");
+  const linkToMaping = {
+    home: "/project/",
+    signin: "/project/users/signin",
+    signup: "/project/users/signup",
+    profile: "/project/profile",
+    search: "/project/search",
+    users: "/project/users",
+    account: "/project/users/account",
+    details: "/project/details",
+  };
 
   return (
     <div className="container-fluid">
@@ -20,7 +30,7 @@ function Project() {
       <div className="row">
         <div className="col-2">
           <div className="list-group">
-            <Link to="/project/" className="list-group-item">
+            <Link to="/project/" className="list-group-item" >
               Home
             </Link>
             <Link to="/project/users/Signin" className="list-group-item">
